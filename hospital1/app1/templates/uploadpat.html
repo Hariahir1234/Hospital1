@@ -1,0 +1,20 @@
+
+<html> 
+{% extends 'main.html'%}
+{%block content%}
+
+    <form method="POST">
+
+ {% csrf_token %}
+ <table class="table table-striped" >
+ {%for i in upload_pat%}
+ <tr>
+ <td>{{i.label}}</td>
+ <td>{{i}}</td>
+ </tr>
+<br>
+{%endfor%}
+</table>
+<input type="submit" name="submit" />
+{% endblock %}
+</html>

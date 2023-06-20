@@ -1,0 +1,24 @@
+<html>
+    {% extends 'main.html'%}
+    {%block content%}
+       
+ <a href="{% url 'uploadappointments' %}" ><input type="button" value="Upload Appointment"> </input></a> 
+<br>
+<table class="table table-hover" class="table1" border=1 style="background-color:white" >
+<th>Doctor- Patitent Name </th> <th>Doctor Name</th> <th>Appointment Date </th> <th> Appointment Time </th> <th> Actions </th>
+{%for i in appointmentdetails%}<tr>
+<td>{{i.pname}}</td>
+<td>{{i.dname}}</td>
+<td>{{i.date}}</td>
+<td>{{i.time}}</td>
+
+<td><a href="/updateappoint/{{i.id}}" id='{{i.id}}' > <i class='fa fa-edit'></a> </td>
+<td><a href="/deleteappoint/{{i.id}}" id='{{i.id}}' > <i class="fa fa-trash" ></a> </td>
+
+<br>
+{%endfor%}
+</tr>
+</table>
+{%endblock%}
+
+</html>
